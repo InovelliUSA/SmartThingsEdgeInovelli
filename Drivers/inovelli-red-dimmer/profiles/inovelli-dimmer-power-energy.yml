@@ -1,0 +1,253 @@
+name: inovelli-dimmer-power-energy
+components:
+- id: main
+  capabilities:
+  - id: switch
+    version: 1
+  - id: switchLevel
+    version: 1
+  - id: powerMeter
+    version: 1
+  - id: energyMeter
+    version: 1
+  - id: colorControl
+    version: 1
+  - id: refresh
+    version: 1
+  categories:
+  - name: Switch
+- id: button1
+  capabilities:
+  - id: button
+    version: 1
+  categories:
+  - name: RemoteController
+- id: button2
+  capabilities:
+    - id: button
+      version: 1
+  categories:
+    - name: RemoteController
+- id: button3
+  capabilities:
+    - id: button
+      version: 1
+  categories:
+    - name: RemoteController
+preferences:
+  - name: "dimmingSpeed"
+    title: "Dimming Speed"
+    description: "This changes the speed in which the attached light dims up or down. A setting of 0 should turn the light immediately on or off (almost like an on/off switch). Increasing the value should slow down the transition speed."
+    required: true
+    preferenceType: number
+    definition:
+      minimum: 0
+      maximum: 100
+      default: 3
+  - name: "dimmingSpeedFromSwitch"
+    title: "Dimming Speed (From Switch)"
+    description: "This changes the speed in which the attached light dims up or down when controlled from the physical switch. A setting of 0 should turn the light immediately on or off (almost like an on/off switch). A setting of 101 should keep this in sync with parameter 1."
+    required: true
+    preferenceType: number
+    definition:
+      minimum: 0
+      maximum: 101
+      default: 101
+  - name: "rampRate"
+    title: "Ramp Rate"
+    description: "This changes the speed in which the attached light turns on or off. For example, when a user sends the switch a basicSet(value: 0xFF) or basicSet(value: 0x00), this is the speed in which those actions take place. A setting of 0 should turn the light immediately on or off."
+    required: true
+    preferenceType: number
+    definition:
+      minimum: 0
+      maximum: 101
+      default: 101
+  - name: "rampRateFromSwitch"
+    title: "Ramp Rate (From Switch)"
+    description: "This changes the speed in which the attached light turns on or off from the physical switch. For example, when a user presses the up or down button, this is the speed in which those actions take place. A setting of 0 should turn the light immediately on or off."
+    required: true
+    preferenceType: number
+    definition:
+      minimum: 0
+      maximum: 101
+      default: 101
+  - name: "minimumLevel"
+    title: "Minimum Level"
+    description: "The minimum level that the dimmer allows the bulb to be dimmed to. Useful when the user has an LED bulb that does not turn on or flickers at a lower level."
+    required: true
+    preferenceType: number
+    definition:
+      minimum: 1
+      maximum: 45
+      default: 1
+  - name: "maximumLevel"
+    title: "Maximum Level"
+    description: "The maximum level that the dimmer allows the bulb to be dimmed to. Useful when the user has an LED bulb that reaches its maximum level before the dimmer value of 99."
+    required: true
+    preferenceType: number
+    definition:
+      minimum: 55
+      maximum: 99
+      default: 99
+  - name: "invertSwitch"
+    title: "Invert Switch"
+    description: "Inverts the orientation of the switch. Useful when the switch is installed upside down. Essentially up becomes down and down becomes up."
+    required: true
+    preferenceType: number
+    definition:
+      minimum: 0
+      maximum: 1
+      default: 0
+  - name: "autoOffTimer"
+    title: "Auto Off Timer"
+    description: "Automatically turns the switch off after this many seconds. When the switch is turned on a timer is started that is the duration of this setting. When the timer expires, the switch is turned off."
+    required: true
+    preferenceType: number
+    definition:
+      minimum: 0
+      maximum: 32767
+      default: 0
+  - name: "defaultLevelLocal"
+    title: "Default Level (Local)"
+    description: "Default level for the dimmer when it is powered on from the local switch. A setting of 0 means that the switch will return to the level that it was on before it was turned off."
+    required: true
+    preferenceType: number
+    definition:
+      minimum: 0
+      maximum: 99
+      default: 0
+  - name: "defaultLevelZWave"
+    title: "Default Level (Z-Wave)"
+    description: "Default level for the dimmer when it is powered on from a Z-Wave command. A setting of 0 means that the switch will return to the level that it was on before it was turned off."
+    required: true
+    preferenceType: number
+    definition:
+      minimum: 0
+      maximum: 99
+      default: 0
+  - name: "stateAfterPowerRestored"
+    title: "State After Power Restored"
+    description: "The state the switch should return to once power is restored after power failure. 0 = off, 1-99 = level, 100=previous."
+    required: true
+    preferenceType: number
+    definition:
+      minimum: 0
+      maximum: 100
+      default: 0
+  - name: "associationBehavior"
+    title: "Association Behavior"
+    description: "When should the switch send commands to associated devices?"
+    required: true
+    preferenceType: number
+    definition:
+      minimum: 0
+      maximum: 15
+      default: 11
+  - name: "lEDStripColor"
+    title: "LED Strip Color"
+    description: "This is the color of the LED strip."
+    required: true
+    preferenceType: number
+    definition:
+      minimum: 0
+      maximum: 255
+      default: 170
+  - name: "lEDStripIntensity"
+    title: "LED Strip Intensity"
+    description: "This is the intensity of the LED strip."
+    required: true
+    preferenceType: number
+    definition:
+      minimum: 0
+      maximum: 10
+      default: 5
+  - name: "lEDStripIntensityWhenOF"
+    title: "LED Strip Intensity (When OFF)"
+    description: "This is the intensity of the LED strip when the switch is off. This is useful for users to see the light switch location when the lights are off."
+    required: true
+    preferenceType: number
+    definition:
+      minimum: 0
+      maximum: 10
+      default: 1
+  - name: "lEDStripTimeout"
+    title: "LED Strip Timeout"
+    description: "When the LED strip is disabled (LED Strip Intensity is set to 0), this setting allows the LED strip to turn on temporarily while being adjusted."
+    required: true
+    preferenceType: number
+    definition:
+      minimum: 0
+      maximum: 10
+      default: 3
+  - name: "activePowerReports"
+    title: "Active Power Reports"
+    description: "The power level change that will result in a new power report being sent. The value is a percentage of the previous report. 0 = disabled."
+    required: true
+    preferenceType: number
+    definition:
+      minimum: 0
+      maximum: 100
+      default: 10
+  - name: "periodicPowerEnergyRep"
+    title: "Periodic Power & Energy Reports"
+    description: "Time period between consecutive power & energy reports being sent (in seconds). The timer is reset after each report is sent."
+    required: true
+    preferenceType: number
+    definition:
+      minimum: 0
+      maximum: 32767
+      default: 3600
+  - name: "energyReports"
+    title: "Energy Reports"
+    description: "The energy level change that will result in a new energy report being sent. The value is a percentage of the previous report."
+    required: true
+    preferenceType: number
+    definition:
+      minimum: 0
+      maximum: 100
+      default: 10
+  - name: "aCPowerType"
+    title: "AC Power Type"
+    description: "Configure the switch to use a neutral wire."
+    required: true
+    preferenceType: number
+    definition:
+      minimum: 0
+      maximum: 1
+      default: 1
+  - name: "switchType"
+    title: "Switch Type"
+    description: "Configure the type of 3-way switch connected to the dimmer."
+    required: true
+    preferenceType: number
+    definition:
+      minimum: 0
+      maximum: 2
+      default: 0
+  - name: "buttonPressDelay"
+    title: "Button Press Delay"
+    description: "This will set the button press delay if parameter 51 is set to 1. For this parameter 1 = 100ms, 2 = 200ms, 3 = 300ms, etc. up to 900ms (firmware 1.52+)"
+    required: true
+    preferenceType: number
+    definition:
+      minimum: 1
+      maximum: 9
+      default: 5
+  - name: "disablePhysicalOnOffDel"
+    title: "Disable Physical On/Off Delay"
+    description: "The 700ms delay that occurs after pressing the physical button to turn the switch on/off is removed. Consequently this also removes the following scenes: 2x, 3x, 4x, 5x tap. 1x tap and config button scenes still work. (firmware 1.47+)"
+    required: true
+    preferenceType: number
+    definition:
+      minimum: 0
+      maximum: 1
+      default: 1
+  - name: "smartBulbMode"
+    title: "Smart Bulb Mode"
+    description: "Change the working mode of the dimmer. Choose either on / off only which makes the device work like an on / off switch. Or choose smart bulb mode which optimized the device for interaction with smart bulbs. (firmware 1.54+)"
+    required: true
+    preferenceType: number
+    definition:
+      minimum: 0
+      maximum: 2
+      default: 0
