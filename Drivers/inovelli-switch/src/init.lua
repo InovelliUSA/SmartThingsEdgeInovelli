@@ -62,7 +62,6 @@ end
 local driver_template = {
   supported_capabilities = {
     capabilities.switch,
-    capabilities.switchLevel,
     capabilities.battery,
     capabilities.energyMeter,
     capabilities.powerMeter,
@@ -73,7 +72,6 @@ local driver_template = {
   },
   sub_drivers = {
     require("inovelli-LED"),
-    require("inovelli-2-channel-smart-plug")
   },
   lifecycle_handlers = {
     init = device_init,

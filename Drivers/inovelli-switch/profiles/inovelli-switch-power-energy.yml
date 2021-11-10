@@ -1,0 +1,176 @@
+name: inovelli-switch-power-energy
+components:
+- id: main
+  capabilities:
+  - id: switch
+    version: 1
+  - id: powerMeter
+    version: 1
+  - id: energyMeter
+    version: 1
+  - id: colorControl
+    version: 1
+  - id: refresh
+    version: 1
+  categories:
+  - name: Switch
+- id: button1
+  capabilities:
+  - id: button
+    version: 1
+  categories:
+  - name: RemoteController
+- id: button2
+  capabilities:
+    - id: button
+      version: 1
+  categories:
+    - name: RemoteController
+- id: button3
+  capabilities:
+    - id: button
+      version: 1
+  categories:
+    - name: RemoteController
+preferences:
+  - name: "parameter1"
+    title: "State After Power Restored"
+    description: "The state the switch should return to once power is restored after power failure."
+    required: true
+    preferenceType: enumeration
+    definition:
+      options:
+        "0": "Previous"
+        "1": "On"
+        "2": "Off"
+      default: 0
+  - name: "parameter2"
+    title: "Invert Switch"
+    description: "Inverts the orientation of the switch. Useful when the switch is installed upside down. Essentially up becomes down and down becomes up."
+    required: true
+    preferenceType: enumeration
+    definition:
+      options:
+        "1": "Yes"
+        "0": "No"
+      default: 0
+  - name: "parameter3"
+    title: "Auto Off Timer"
+    description: "Automatically turns the switch off after this many seconds. When the switch is turned on a timer is started that is the duration of this setting. When the timer expires, the switch is turned off."
+    required: true
+    preferenceType: number
+    definition:
+      minimum: 1
+      maximum: 32767
+      default: 0
+  - name: "parameter4"
+    title: "Association Behavior"
+    description: "When should the switch send commands to associated devices?"
+    required: true
+    preferenceType: number
+    definition:
+      minimum: 0
+      maximum: 15
+      default: 15
+  - name: "parameter5"
+    title: "LED Strip Color"
+    description: "This is the color of the LED strip."
+    required: true
+    preferenceType: enumeration
+    definition:
+      options:
+        "0": "Red"
+        "21": "Orange"
+        "42": "Yellow"
+        "85": "Green"
+        "127": "Cyan"
+        "170": "Blue"
+        "212": "Violet"
+        "234": "Pink"
+        "255": "White (Firmware 1.19+)"
+      default: 170
+  - name: "parameter6"
+    title: "LED Strip Intensity"
+    description: "This is the intensity of the LED strip."
+    required: true
+    preferenceType: enumeration
+    definition:
+      options:
+        "0": "0%"
+        "1": "10%"
+        "2": "20%"
+        "3": "30%"
+        "4": "40%"
+        "5": "50%"
+        "6": "60%"
+        "7": "70%"
+        "8": "80%"
+        "9": "90%"
+        "10": "100%"
+      default: 5
+  - name: "parameter7"
+    title: "LED Strip Intensity (When OFF)"
+    description: "This is the intensity of the LED strip when the switch is off. This is useful for users to see the light switch location when the lights are off."
+    required: true
+    preferenceType: enumeration
+    definition:
+      options:
+        "0": "0%"
+        "1": "10%"
+        "2": "20%"
+        "3": "30%"
+        "4": "40%"
+        "5": "50%"
+        "6": "60%"
+        "7": "70%"
+        "8": "80%"
+        "9": "90%"
+        "10": "100%"
+      default: 1
+  - name: "parameter10"
+    title: "Active Power Reports"
+    description: "The power level change that will result in a new power report being sent. The value is a percentage of the previous report. 0 = disabled."
+    required: true
+    preferenceType: number
+    definition:
+      minimum: 0
+      maximum: 100
+      default: 10
+  - name: "parameter11"
+    title: "Periodic Power & Energy Reports"
+    description: "Time period between consecutive power & energy reports being sent (in seconds). The timer is reset after each report is sent."
+    required: true
+    preferenceType: number
+    definition:
+      minimum: 0
+      maximum: 32767
+      default: 3600
+  - name: "parameter12"
+    title: "Energy Reports"
+    description: "The energy level change that will result in a new energy report being sent. The value is a percentage of the previous report."
+    required: true
+    preferenceType: number
+    definition:
+      minimum: 0
+      maximum: 100
+      default: 10
+  - name: "parameter13"
+    title: "Load Type"
+    description: "The default of the switch is to auto detect the load. In some situations you may want to try the option for a special load type. (firmware 1.17+)"
+    required: true
+    preferenceType: enumeration
+    definition:
+      options:
+        "0": "Default"
+        "1": "Special Load (T8)"
+      default: 0
+  - name: "parameter51"
+    title: "Disable Physical On/Off Delay"
+    description: "The 700ms delay that occurs after pressing the physical button to turn the switch on/off is removed. Consequently this also removes the following scenes: held, released, 2x, 3x, 4x, 5x tap. 1x tap and config button scenes still work. (firmware 1.19+)"
+    required: true
+    preferenceType: enumeration
+    definition:
+      options:
+        "0": "Yes"
+        "1": "No (Default)"
+      default: 1

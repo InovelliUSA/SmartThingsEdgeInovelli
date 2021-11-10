@@ -1,0 +1,13 @@
+zwaveManufacturer:
+  - id: "Inovelli/Switch/Power/Energy"
+    deviceLabel: Inovelli Red Switch
+    manufacturerId: 0x031E
+    productType: 0x0002
+    productId: 0x0001
+    deviceProfileName: inovelli-switch-power-energy
+  - id: "Inovelli/Switch"
+    deviceLabel: Inovelli Switch
+    manufacturerId: 0x031E
+    productType: 0x0004
+    productId: 0x0001
+    deviceProfileName: inovelli-switch

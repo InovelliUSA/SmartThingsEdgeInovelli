@@ -1,0 +1,4 @@
+name: 'Inovelli Dimmer'
+packageKey: 'inovelli-dimmer'
+permissions:
+  zwave: {}

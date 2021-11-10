@@ -2,7 +2,7 @@ local devices = {
   INOVELLI = {
     MATCHING_MATRIX = {
       mfrs = 0x031E,
-      product_types = {0x0001, 0x0003},
+      product_types = {0x0002, 0x0004},
       product_ids = 0x0001
     },
     PARAMETERS = {
@@ -18,19 +18,7 @@ local devices = {
 	  parameter10 = {parameter_number = 10, size = 1},
       parameter11 = {parameter_number = 11, size = 1},
       parameter12 = {parameter_number = 12, size = 1},
-      parameter13 = {parameter_number = 13, size = 2},
-      parameter14 = {parameter_number = 14, size = 1},
-      parameter15 = {parameter_number = 15, size = 1},
-	  parameter17 = {parameter_number = 17, size = 1},
-      parameter18 = {parameter_number = 18, size = 1},
-      parameter19 = {parameter_number = 19, size = 2},
-      parameter20 = {parameter_number = 20, size = 1},
-      parameter21 = {parameter_number = 21, size = 1},
-      parameter22 = {parameter_number = 22, size = 1},
-      parameter50 = {parameter_number = 50, size = 1},
-      parameter51 = {parameter_number = 51, size = 1},
-	  parameter52 = {parameter_number = 52, size = 1}
-
+      parameter13 = {parameter_number = 13, size = 2}
     }
   }
 }
