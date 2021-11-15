@@ -8,17 +8,18 @@ local devices = {
     PARAMETERS = {
       parameter1 = {parameter_number = 1, size = 1},
       parameter2 = {parameter_number = 2, size = 1},
-      parameter3 = {parameter_number = 3, size = 1},
+      parameter3 = {parameter_number = 3, size = 2},
       parameter4 = {parameter_number = 4, size = 1},
-      parameter5 = {parameter_number = 5, size = 1},
+      parameter5 = {parameter_number = 5, size = 2},
 	  parameter6 = {parameter_number = 6, size = 1},
 	  parameter7 = {parameter_number = 7, size = 1},
-      parameter8 = {parameter_number = 8, size = 2},
+      parameter8 = {parameter_number = 8, size = 4},
 	  parameter9 = {parameter_number = 9, size = 1},
 	  parameter10 = {parameter_number = 10, size = 1},
-      parameter11 = {parameter_number = 11, size = 1},
+      parameter11 = {parameter_number = 11, size = 2},
       parameter12 = {parameter_number = 12, size = 1},
-      parameter13 = {parameter_number = 13, size = 2}
+      parameter13 = {parameter_number = 13, size = 1},
+	  parameter51 = {parameter_number = 51, size = 1},
     }
   }
 }

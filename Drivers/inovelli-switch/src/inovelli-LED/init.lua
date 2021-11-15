@@ -10,11 +10,11 @@ local Configuration = (require "st.zwave.CommandClass.Configuration")({ version=
 --- @type st.zwave.CommandClass.CentralScene
 local CentralScene = (require "st.zwave.CommandClass.CentralScene")({version=3})
 
-local LED_COLOR_CONTROL_PARAMETER_NUMBER = 13
+local LED_COLOR_CONTROL_PARAMETER_NUMBER = 5
 local LED_GENERIC_SATURATION = 100
 local INOVELLI_MANUFACTURER_ID = 0x031E
-local INOVELLI_LZW31SN_PRODUCT_TYPE = 0x0001
-local INOVELLI_LZW31_PRODUCT_TYPE = 0x0003
+local INOVELLI_LZW31SN_PRODUCT_TYPE = 0x0002
+local INOVELLI_LZW31_PRODUCT_TYPE = 0x0004
 local INOVELLI_DIMMER_PRODUCT_ID = 0x0001
 
 local function button_to_component(buttonId)
