@@ -9,6 +9,7 @@ local cc = require "st.zwave.CommandClass"
 local Configuration = (require "st.zwave.CommandClass.Configuration")({ version=4 })
 --- @type st.zwave.CommandClass.CentralScene
 local CentralScene = (require "st.zwave.CommandClass.CentralScene")({version=3})
+local ledNotification = capabilities["angelsquare52821.ledNotification"]
 
 local LED_COLOR_CONTROL_PARAMETER_NUMBER = 5
 local LED_GENERIC_SATURATION = 100
@@ -49,6 +50,10 @@ local function configuration_report(driver, device, cmd)
     device:emit_event(capabilities.colorControl.hue(hue))
     device:emit_event(capabilities.colorControl.saturation(LED_GENERIC_SATURATION))
   end
+end
+
+local function ledNotification_set_handler(driver, device, command)
+  log.error("ledNotification_set_handler")
 end
 
 local map_key_attribute_to_capability = {
@@ -124,6 +129,9 @@ local inovelli_red_dimmer = {
   capability_handlers = {
     [capabilities.colorControl.ID] = {
       [capabilities.colorControl.commands.setColor.NAME] = set_color
+    },
+	[ledNotification.ID] = {
+       [ledNotification.commands.notificationSet.NAME] = ledNotification_set_handler,
     }
   },
   can_handle = can_handle_inovelli_led

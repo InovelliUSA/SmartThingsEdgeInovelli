@@ -6,6 +6,7 @@ local ZwaveDriver = require "st.zwave.driver"
 --- @type st.zwave.CommandClass.Configuration
 local Configuration = (require "st.zwave.CommandClass.Configuration")({ version=4 })
 local preferencesMap = require "preferences"
+local ledNotification = capabilities["angelsquare52821.ledNotification"]
 
 --- Map component to end_points(channels)
 ---
@@ -68,7 +69,8 @@ local driver_template = {
     capabilities.colorControl,
     capabilities.button,
     capabilities.temperatureMeasurement,
-    capabilities.relativeHumidityMeasurement
+    capabilities.relativeHumidityMeasurement,
+	ledNotification
   },
   sub_drivers = {
     require("inovelli-LED"),

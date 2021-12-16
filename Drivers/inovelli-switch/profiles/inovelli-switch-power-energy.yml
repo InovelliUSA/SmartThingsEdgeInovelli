@@ -2,6 +2,8 @@ name: inovelli-switch-power-energy
 components:
 - id: main
   capabilities:
+  - id: "angelsquare52821.ledNotification"
+    version: 1
   - id: switch
     version: 1
   - id: powerMeter

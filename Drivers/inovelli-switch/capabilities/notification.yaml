@@ -1,0 +1,28 @@
+id: angelsquare52821.ledNotification
+version: 1
+status: proposed
+name: LED Notification
+attributes:
+  notification:
+    schema:
+      type: object
+      properties:
+        value:
+          type: integer
+          minimum: 0
+          maximum: 65000
+      additionalProperties: false
+      required:
+        - value
+    setter: notificationSet
+    enumCommands: []
+commands:
+  notificationSet:
+    name: notificationSet
+    arguments:
+      - name: value
+        optional: false
+        schema:
+          type: integer
+          minimum: 0
+          maximum: 65000

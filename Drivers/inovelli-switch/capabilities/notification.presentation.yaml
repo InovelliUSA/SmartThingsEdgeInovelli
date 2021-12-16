@@ -1,0 +1,40 @@
+{
+"dashboard": {
+    "states": [
+      {
+        "label": "{{notification.value}}",
+        "alternatives": null
+      }
+    ],
+    "actions": [],
+    "basicPlus": []
+  },
+    "detailView": [
+        {
+            "label": "{{i18n.label}}",
+            "displayType": "numberField",
+            "numberField": {
+                    "command": "notificationSet",
+                    "argumentType": "integer",
+                    "unit": null
+                },
+            "state": null
+        }
+    ],
+    "automation": {
+        "conditions": [],
+        "actions": [
+            {
+                "label": "{{i18n.label}}",
+                "displayType": "numberField",
+                "numberField": {
+                    "command": "notificationSet",
+                    "argumentType": "integer",
+                    "unit": null
+                }
+            }
+        ]
+    },
+    "id": "angelsquare52821.ledNotification",
+    "version": 1
+}
