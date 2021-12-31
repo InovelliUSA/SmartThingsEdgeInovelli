@@ -14,9 +14,14 @@
             "label": "{{i18n.label}}",
             "displayType": "numberField",
             "numberField": {
+                    "value": null,
+                    "unit": null,
                     "command": "notificationSet",
                     "argumentType": "integer",
-                    "unit": null
+                    "range": [
+                        0,
+                        65000
+                    ]
                 },
             "state": null
         }
